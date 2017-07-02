@@ -175,6 +175,7 @@ bindsym Mod4+r mode "resize"
 # finds out, if available)
 bar {
 	status_command i3blocks -c ~/.i3/i3blocks.conf
+        position top
 }
 
 #######################################################################
