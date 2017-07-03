@@ -168,6 +168,10 @@ bindsym Mod4+r mode "resize"
 bar {
 	status_command i3blocks -c ~/.i3/i3blocks.conf
         position top
+        colors {
+                background #002b36
+                statusline #839496
+        }
 }
 
 #######################################################################
