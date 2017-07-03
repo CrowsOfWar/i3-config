@@ -13,7 +13,7 @@
 gaps inner 10
 gaps outer 10
 new_window 1pixel
-exec feh --bg-scale ~/desktop.png
+exec feh --bg-scale ~/Backgrounds/aa.jpg
 
 font pango:Source Code Pro for Powerline Regular 10
 
