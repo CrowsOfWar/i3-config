@@ -34,9 +34,6 @@ set $right semicolon
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
-# start a terminal
-bindsym Mod4+Return exec i3-sensible-terminal
-
 # kill focused window
 bindsym Mod4+Shift+q kill
 
@@ -144,6 +141,16 @@ mode $powermsg {
 
 }
 bindsym Mod4+Shift+s mode $powermsg
+
+# Common apps launcher
+set $applauncher "App launcher: [t]erminal, [c]hrome, [i]ntellij"
+mode $applauncher {
+        bindsym t exec i3-sensible-terminal & i3-msg mode "default"
+        bindsym c exec google-chrome & i3-msg mode "default"
+        bindsym i exec intellij & i3-msg mode "default"
+        bindsym Escape mode "default"
+}
+bindsym Mod4+Return mode $applauncher
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
