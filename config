@@ -133,8 +133,17 @@ bindsym Mod4+Shift+c reload
 bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-# shutdown system
-bindsym Mod4+Shift+s exec "i3-nagbar -t warning -m 'Shutdown computer?' -b 'Yes' 'shutdown 0'"
+
+# System power option
+set $powermsg "Power options: [r]eboot, [s]hutdown, [l]ogoff"
+mode $powermsg {
+        bindsym r shutdown --reboot now
+        bindsym s shutdown now
+        bindsym l exit
+        bindsym Escape mode "default"
+
+}
+bindsym Mod4+Shift+s mode $powermsg
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
