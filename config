@@ -159,7 +159,7 @@ bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # System power option
 # red:  #dc322f
 # text: #002b36
-set $powermsg <span background='#dc322f' foreground='#002b36'>&#57520; power-options </span><span foreground='#dc322f'>&#57520;</span> [r]eboot, [s]hutdown, [l]ogoffA
+set $powermsg <span background='#dc322f' foreground='#002b36'>&#57520; power-options </span><span foreground='#dc322f'>&#57520;</span> [r]eboot   [s]hutdown   [l]ogoff
 
 mode --pango_markup "$powermsg" {
         bindsym r shutdown --reboot now
