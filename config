@@ -174,11 +174,12 @@ bindsym Mod4+Shift+s mode "$powermsg"
 # magenta: #d33682
 # text:    #002b36
 
-set $applauncher <span background='#d33682' foreground='#002b36'>&#57520; app-launcher </span><span foreground='#d33682'>&#57520;</span> [t]erminal   [c]hrome   [i]ntellij
+set $applauncher <span background='#d33682' foreground='#002b36'>&#57520; app-launcher </span><span foreground='#d33682'>&#57520;</span> [t]erminal   [c]hrome   [i]ntellij    t[r]ello
 mode --pango_markup "$applauncher" {
          bindsym t exec i3-sensible-terminal & i3-msg mode "default"
          bindsym c exec google-chrome & i3-msg mode "default"
          bindsym i exec intellij & i3-msg mode "default"
+         bindsym r exec trello & i3-msg mode "default"
          bindsym Escape mode "default"
          bindsym Return mode "default"
 }
