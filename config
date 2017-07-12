@@ -10,6 +10,31 @@
 # layout, use the i3-config-wizard
 #
 
+# Solarized colors
+# see http://www.zovirl.com/2011/07/22/solarized_cheat_sheet/
+set $sol_base03         #002b36
+set $sol_base02         #073642
+set $sol_base01         #586e75
+set $sol_base00         #657b83
+set $sol_base0          #839496
+set $sol_base1          #93a1a1
+set $sol_base2          #eee8d5
+set $sol_base3          #fdf6e3
+set $sol_yellow         #b58900
+set $sol_orange         #cb4b16
+set $sol_red            #dc322f
+set $sol_magenta        #d33682
+set $sol_violet         #6c71c4
+set $sol_blue           #268bd2
+set $sol_cyan           #2aa198
+set $sol_green          #859900
+
+# class                 border          backgr.         text            indicator    child_border
+client.focused          $sol_base02     $sol_base03     $sol_base00     $sol_base2
+client.focused_inactive $sol_base03     $sol_base02     $sol_base01     $sol_base1
+client.unfocused        $sol_base03     $sol_base02     $sol_base01     $sol_base1
+client.urgent           #002b36         #dc322f         #fdf6e3         #002b36
+
 gaps inner 10
 gaps outer 10
 new_window 1pixel
@@ -143,14 +168,14 @@ mode $powermsg {
 bindsym Mod4+Shift+s mode $powermsg
 
 # Common apps launcher
-set $applauncher "App launcher: [t]erminal, [c]hrome, [i]ntellij"
-mode $applauncher {
-        bindsym t exec i3-sensible-terminal & i3-msg mode "default"
-        bindsym c exec google-chrome & i3-msg mode "default"
-        bindsym i exec intellij & i3-msg mode "default"
-        bindsym Escape mode "default"
+set $applauncher <span background='white'>App launcher:</span> [t]erminal, [c]hrome, [i]ntellij
+mode --pango_markup "$applauncher" {
+  #      bindsym t exec i3-sensible-terminal & i3-msg mode "default"
+   #     bindsym c exec google-chrome & i3-msg mode "default"
+#        bindsym i exec intellij & i3-msg mode "default"
+         bindsym Escape mode "default"
 }
-bindsym Mod4+Return mode $applauncher
+bindsym Mod4+Return mode "$applauncher"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -186,10 +211,11 @@ bar {
         colors {
                 background #002b36
                 statusline #839496
+                binding_mode $sol_base03 $sol_base02 $sol_red
         }
 }
 
-#######################################################################
+##################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used their favorite modifier (alt or windows)
 #
@@ -199,29 +225,3 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 exec i3-config-wizard
-
-
-# Solarized colors
-# see http://www.zovirl.com/2011/07/22/solarized_cheat_sheet/
-set $sol_base03         #002b36
-set $sol_base02         #073642
-set $sol_base01         #586e75
-set $sol_base00         #657b83
-set $sol_base0          #839496
-set $sol_base1          #93a1a1
-set $sol_base2          #eee8d5
-set $sol_base3          #fdf6e3
-set $sol_yellow         #b58900
-set $sol_orange         #cb4b16
-set $sol_red            #dc322f
-set $sol_magenta        #d33682
-set $sol_violet         #6c71c4
-set $sol_blue           #268bd2
-set $sol_cyan           #2aa198
-set $sol_green          #859900
-
-# class                 border          backgr.         text            indicator    child_border
-client.focused          $sol_base02     $sol_base03     $sol_base00     $sol_base2
-client.focused_inactive $sol_base03     $sol_base02     $sol_base01     $sol_base1
-client.unfocused        $sol_base03     $sol_base02     $sol_base01     $sol_base1
-client.urgent           #002b36         #dc322f         #fdf6e3         #002b36
