@@ -157,17 +157,23 @@ bindsym Mod4+Shift+r restart
 bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # System power option
-set $powermsg "Power options: [r]eboot, [s]hutdown, [l]ogoff"
-mode $powermsg {
+# red:  #dc322f
+# text: #002b36
+set $powermsg <span background='#dc322f' foreground='#002b36'>&#57520; power-options </span><span foreground='#dc322f'>&#57520;</span> [r]eboot, [s]hutdown, [l]ogoffA
+
+mode --pango_markup "$powermsg" {
         bindsym r shutdown --reboot now
         bindsym s shutdown now
         bindsym l exit
         bindsym Escape mode "default"
         bindsym Return mode "default"
 }
-bindsym Mod4+Shift+s mode $powermsg
+bindsym Mod4+Shift+s mode "$powermsg"
 
 # Common apps launcher
+# magenta: #d33682
+# text:    #002b36
+
 set $applauncher <span background='#d33682' foreground='#002b36'>&#57520; app-launcher </span><span foreground='#d33682'>&#57520;</span> [t]erminal   [c]hrome   [i]ntellij
 mode --pango_markup "$applauncher" {
          bindsym t exec i3-sensible-terminal & i3-msg mode "default"
