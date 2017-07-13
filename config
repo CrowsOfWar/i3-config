@@ -150,6 +150,11 @@ bindsym Mod4+Shift+8 move container to workspace 8
 bindsym Mod4+Shift+9 move container to workspace 9
 bindsym Mod4+Shift+0 move container to workspace 10
 
+# volume controls
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86Tools exec amixer -D pulse set Master 1+ toggle
+
 # reload the configuration file
 bindsym Mod4+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
