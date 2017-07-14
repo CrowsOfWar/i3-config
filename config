@@ -189,6 +189,7 @@ mode --pango_markup "$applauncher" {
 	 bindsym s exec slack & i3-msg mode "default"
          bindsym Escape mode "default"
          bindsym Return mode "default"
+	 bindsym grave exec echo '✔ ' | xclip -i -selection clipboard & i3-msg mode "default"
 }
 bindsym Mod4+Return mode "$applauncher"
 
