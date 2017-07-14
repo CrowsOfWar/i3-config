@@ -187,9 +187,9 @@ mode --pango_markup "$applauncher" {
          bindsym i exec intellij & i3-msg mode "default"
          bindsym r exec trello & i3-msg mode "default"
 	 bindsym s exec slack & i3-msg mode "default"
+	 bindsym grave exec echo  | xclip -i -selection clipboard
          bindsym Escape mode "default"
          bindsym Return mode "default"
-	 bindsym grave exec echo '✔ ' | xclip -i -selection clipboard & i3-msg mode "default"
 }
 bindsym Mod4+Return mode "$applauncher"
 
@@ -230,9 +230,6 @@ bar {
                 binding_mode $sol_base03 $sol_base03 $sol_base0
         }
 }
-
-# start certain applications in certain workspace
-assign [class="jetbrains-idea-ce"] 1
 
 ##################################################################
 # automatically start i3-config-wizard to offer the user to create a
