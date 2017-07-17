@@ -225,12 +225,13 @@ bindsym Mod4+r mode "resize"
 # finds out, if available)
 bar {
 	status_command i3blocks -c ~/.i3/i3blocks.conf
-        position top
-        colors {
-                background $sol_base03
-                statusline #839496
-                binding_mode $sol_base03 $sol_base03 $sol_base0
-        }
+    position top
+    colors {
+            background $sol_base03
+            statusline #839496
+            binding_mode $sol_base03 $sol_base03 $sol_base0
+    }
+    height 35
 }
 
 # start certain applications in certain workspace
