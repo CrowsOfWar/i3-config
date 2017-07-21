@@ -27,14 +27,15 @@ for script_name in scripts:
 
 for i, script_output in enumerate(script_outputs):
     next_output = {}
-    prev_output = script_output
+    prev_output = { 'bg_color': '#000000ff' }
     if i != 0:
         prev_output = script_outputs[i - 1]
     if i != (len(script_outputs) - 1):
         next_output = script_outputs[i + 1]
 
-    formatting = { 'prev_bg': prev_output['bg_color'], 'bg': script_output['bg_color'], 'fg': script_output['fg_color'], 'output': script_output['output'] }
-    total_output += "<span foreground='%(bg)s' background='%(prev_bg)s'>&#57522;</span><span background='%(bg)s' foreground='%(fg)s'> %(output)s </span>" % formatting
+    prev_bg = " background='%s'" % prev_output['bg_color'] if i != 0 else ""
+    formatting = { 'prev_bg': prev_bg, 'bg': script_output['bg_color'], 'fg': script_output['fg_color'], 'output': script_output['output'] }
+    total_output += "<span foreground='%(bg)s'%(prev_bg)s>&#57522;</span><span background='%(bg)s' foreground='%(fg)s'> %(output)s </span>" % formatting
 
     #print('i%s %s %s' % (i, script_output, prev_output))
 
