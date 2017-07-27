@@ -38,7 +38,7 @@ client.urgent           #002b36         #dc322f         #fdf6e3         #002b36
 gaps inner 10
 gaps outer 10
 new_window 1pixel
-exec feh --bg-scale ~/Backgrounds/aa.jpg
+exec feh --bg-scale ~/Pictures/Wallpapers/_current
 exec --no-startup-id redshift -b 1.0:0.5
 
 font pango:Source Code Pro for Powerline Regular 10
@@ -242,6 +242,13 @@ bar {
 # start certain applications in certain workspace
 assign [class="jetbrains-idea-ce"] 1
 assign [class="atom"] 1
+assign [class="Minecraft 1.12"] 3
+
+# assign certain workspaces to certain monitors
+workspace 1 output DVI-D-0
+workspace 3 output DVI-D-0
+workspace 2 output HDMI-0
+workspace 4 output HDMI-0
 
 ##################################################################
 # automatically start i3-config-wizard to offer the user to create a
