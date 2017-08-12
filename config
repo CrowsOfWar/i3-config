@@ -39,7 +39,6 @@ gaps inner 10
 gaps outer 10
 new_window 1pixel
 exec feh --bg-scale ~/Pictures/Wallpapers/_current
-exec --no-startup-id redshift -b 1.0:0.5
 
 font pango:Source Code Pro for Powerline Regular 10
 focus_follows_mouse no
