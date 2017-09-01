@@ -36,15 +36,20 @@ for i, script_output in enumerate(script_outputs):
         prev_output = script_outputs[i - 1]
     if i != (len(script_outputs) - 1):
         next_output = script_outputs[i + 1]
-
-    prev_bg = " background='%s'" % prev_output['bg_color'] if i != 0 else ""
     
+    # HTML attribute to use previous bg as background
+    # However in first one, use a transparent (ie, no) background
+    prev_bg_attr = "background='%s'" % prev_output['bg_color'] if i != 0 else ""
+
     # formatting values for "HTML", in python % notation
-    formatting = { 'prev_bg': prev_bg, 'bg': script_output['bg_color'], 'fg': script_output['fg_color'], 'output': script_output['output'] }
+    formatting = { 'prev_bg': prev_output['bg_color'], 'bg': script_output['bg_color'], 'fg': script_output['fg_color'], 'output': script_output['output'], 'prev_bg_attr': prev_bg_attr }
 
     # arrow separating the 2 blocks
-    arrow = "<span foreground='%(bg)s'%(prev_bg)s>&#57522;</span>" % formatting
-    
+    arrow = "<span foreground='%(bg)s' %(prev_bg_attr)s>&#57522;</span>" % formatting
+    # if the two blocks are same color, use an inverted arrow instead
+    if prev_output['bg_color'] == script_output['bg_color']:
+        arrow = "<span foreground='%(fg)s' background='%(bg)s'>&#57523;</span>" % formatting
+
     total_output += arrow + "<span background='%(bg)s' foreground='%(fg)s'> %(output)s </span>" % formatting
 
 print(total_output)
