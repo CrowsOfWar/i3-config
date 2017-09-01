@@ -38,11 +38,13 @@ for i, script_output in enumerate(script_outputs):
         next_output = script_outputs[i + 1]
 
     prev_bg = " background='%s'" % prev_output['bg_color'] if i != 0 else ""
+    
+    # formatting values for "HTML", in python % notation
     formatting = { 'prev_bg': prev_bg, 'bg': script_output['bg_color'], 'fg': script_output['fg_color'], 'output': script_output['output'] }
-    total_output += "<span foreground='%(bg)s'%(prev_bg)s>&#57522;</span><span background='%(bg)s' foreground='%(fg)s'> %(output)s </span>" % formatting
 
-    #print('i%s %s %s' % (i, script_output, prev_output))
-
-#total_output += "<span foreground='%(bg_color)s' background='%(fg_color)s'>&#57522;</span><span background='%(bg_color)s' foreground='%(fg_color)s'> %(output)s </span>" % script_output
+    # arrow separating the 2 blocks
+    arrow = "<span foreground='%(bg)s'%(prev_bg)s>&#57522;</span>" % formatting
+    
+    total_output += arrow + "<span background='%(bg)s' foreground='%(fg)s'> %(output)s </span>" % formatting
 
 print(total_output)
