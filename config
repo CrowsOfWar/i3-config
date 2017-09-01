@@ -245,6 +245,8 @@ assign [class="atom"] 1
 assign [class="Minecraft 1.12"] 3
 assign [class="Opera"] 4
 
+for_window [class="net-minecraft-bootstrap-Bootstrap"] floating enable
+
 # assign certain workspaces to certain monitors
 workspace 1 output DVI-D-0
 workspace 3 output DVI-D-0
