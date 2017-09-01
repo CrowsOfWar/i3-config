@@ -10,3 +10,6 @@ icon = "&#xf2db;"
 message = str(available_gb) + '/' + str(total_gb) + ' gb (' + str(pct) + '%)'
 print(icon + '   ' + message)
 
+if pct < 30:
+    print('i')
+
