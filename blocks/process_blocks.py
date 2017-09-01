@@ -8,6 +8,10 @@ total_output = ''
 for script_name in scripts:
     result = subprocess.check_output('python ~/.i3/blocks/%s.py' % script_name, shell=True)
     result_split = result.split('\n')
+    
+    # Output of the block:
+    #  line 1 - The text to display
+    #  line 2 - flags (for coloring)
 
     output = result_split[0]
     flags = '' if len(result_split) < 2 else result_split[1]
